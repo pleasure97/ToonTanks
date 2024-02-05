@@ -33,8 +33,9 @@ public:
 	*/
 
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+	void RotateTurret(FVector LookAtTarget); 
+
+	void Fire(); 
 
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess="true"))
@@ -56,11 +57,4 @@ private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Super Duper Variables", meta = (AllowPrivateAccess = "true"))
 	int32 EditAnywhereInt = 22; 
 	*/
-
-
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
-	
 };

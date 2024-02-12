@@ -32,6 +32,8 @@ public:
 	float Speed = 50.f; 
 	*/
 
+	void HandleDestruction(); 
+
 protected:
 	void RotateTurret(FVector LookAtTarget); 
 

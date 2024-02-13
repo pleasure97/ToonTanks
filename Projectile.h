@@ -15,6 +15,9 @@ public:
 	// Sets default values for this actor's properties
 	AProjectile();
 
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -38,8 +41,15 @@ private:
 	UPROPERTY(EditAnywhere)
 	float Damage = 50.f; 
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	UPROPERTY(EditAnywhere, Category="Combat")
+	class UParticleSystem* HitParticles; 
 
+	UPROPERTY(Visibleanywhere, Category="Combat")
+	class UParticleSystemComponent* TrailParticles; 
+
+	UPROPERTY(EditAnywhere, Category="Combat")
+	class USoundBase* LaunchSound; 
+
+	UPROPERTY(EditAnywhere, Category="Combat")
+	USoundBase* HitSound; 
 };

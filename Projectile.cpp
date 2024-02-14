@@ -58,15 +58,15 @@ void AProjectile::OnHit(
 	UE_LOG(LogTemp, Warning, TEXt("OtherComp: %s"), *OtherComp->GetName()); 
 	*/
 
-	auto MyOwner = GetOwner(); 
+	AActor* MyOwner = GetOwner(); 
 
 	if (MyOwner == nullptr) 
 	{
 		Destroy(); 
 		return; 
 	}
-	auto MyOwnInstigator = MyOwner->GetInstigatorController(); 
-	auto DamageTypeClass = UDamageType::StaticClass(); 
+	AController* MyOwnInstigator = MyOwner->GetInstigatorController(); 
+	UClass* DamageTypeClass = UDamageType::StaticClass(); 
 
 	if (OtherActor && OtherActor != this && OtherActor != MyOwner)
 	{
@@ -78,6 +78,10 @@ void AProjectile::OnHit(
 		if (HitSound)
 		{
 			UGameplayStatics::PlaySoundAtLocation(this, HitSound, GetActorLocation()); 
+		}
+		if (HitCameraShakeClass)
+		{
+			GetWorld()->GetFirstPlayerController()->ClientStartCameraShake(HitCameraShakeClass); 
 		}
 	}
 	Destroy(); 

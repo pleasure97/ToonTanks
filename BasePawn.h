@@ -58,6 +58,9 @@ private:
 	UPROPERTY(EditAnywhere, Category="Combat")
 	class USoundBase* DeathSound; 
 
+	UPROPERTY(EditAnywhere, Category="Combat")
+	TSubclassOf<class UCameraShakeBase> DeathCameraShakeClass; 
+
 	/*
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Super Duper Variables", meta = (AllowPrivateAccess = "true"))
 	int32 VisibleAnywhereInt = 12; 
